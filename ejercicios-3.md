@@ -18,6 +18,41 @@ Trata ahora de ordenar este fichero de acuerdo a los siguientes criterios:
 
 ### Respuesta ejercicio 1
 
+```
+sort -R gene-2.bed > gene-2-desordenado.bed
+
+1- cat gene-2-desordenado.bed | sort 
+DUDA: sin cortar los elementos?. Los datos están separados en columnas, no sé si la pregunta se refiere a quitar las columnas y que aparezca todo seguido ---> Esto no lo sé hacer (SANDRA HELP)
+
+2- cat gene-2-desordenado.bed | sort -nr
+
+3- sort   -k, --key=KEYDEF  ordena según una determinada clave;  KEYDEF  indica  el  tipo  y  localización
+KEYDEF  es  F[.C][OPTS][,F[.C][OPTS]]  para  las  posiciones  inicial y final, F es un número de campo y C la posición de un caracter en  dicho
+campo.  En  ambos casos empiezan en 1 y, por defecto, terminan al finalde la línea.
+
+RESPUESTA:    cat gene-2-desordenado.bed | sort -k 3,3 -k 2,2 | sort -nr
+1	6239952	6240378	GENE00000025907
+1	6238262	6238384	GENE00000025907
+1	6234229	6234399	GENE00000025907
+1	6234229	6234399	GENE00000025907
+1	6234229	6234311	GENE00000025907
+1	6233961	6234087	GENE00000025907
+1	6233961	6234087	GENE00000025907
+1	6233961	6234087	GENE00000025907
+1	6230133	6230191	GENE00000025907
+1	6229959	6230073	GENE00000025907
+1	6229959	6230073	GENE00000025907
+1	6229959	6230073	GENE00000025907
+1	6227940	6228049	GENE00000025907
+1	6227940	6228049	GENE00000025907
+1	6227940	6228049	GENE00000025907
+1	6223599	6223745	GENE00000025907
+1	6222341	6228319	GENE00000025907
+1	6206227	6206270	GENE00000025907
+1	6206197	6206270	GENE00000025907
+```
+
+
 ## Ejercicio 2
 
 Cuáles son y cuántos tipos distintos de "features" hay en `Drosophila_melanogaster.BDGP6.28.102.gtf` y en `Homo_sapiens.GRCh38.102.gtf.gz`? Nota: para trabajar con ficheros .gunzip sin descomprimir puedes usar `zcat`.
