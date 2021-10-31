@@ -59,6 +59,33 @@ Cuáles son y cuántos tipos distintos de "features" hay en `Drosophila_melanoga
 
 ### Respuesta ejercicio 2
 
+**`Drosophila_melanogaster.BDGP6.28.102.gtf`**  ***10 features*** : son las enumeradas abajo, después de las 3 líneas de #head
+```
+head -n 4 Drosophila_melanogaster.BDGP6.28.102.gtf | column -t
+
+#!genome-build            BDGP6.28                                                                                                               
+#!genome-version          BDGP6.28                                                                                                               
+#!genome-build-accession  GCA_000001215.4                                                                                                       
+3R   FlyBase  gene  567076  2532932  .  +  .   gene_id  "FBgn0267431";  gene_name  "Myo81F";  gene_source  "FlyBase";  gene_biotype  "protein_coding";
+```
+
+**`Homo_sapiens.GRCh38.102.gtf.gz`**  ***11 features*** : son las enumeradas abajo, después de las 5 líneas de #head
+```
+zcat Homo_sapiens.GRCh38.102.gtf.gz > Homo.gtf  
+1- descomprimo el fichero .gz y le digo que lo vuelque en Homo.gtf
+
+head Homo.gtf
+2- miro a ver como ha quedado el fichero Homo.gtf (y me doy cuenta de que tiene un número distinto de #heads)
+
+3- head -n6 Homo.gtf | column -t
+#!genome-build            GRCh38.p13                                                                                                                               
+#!genome-version          GRCh38                                                                                                                                   
+#!genome-date             2013-12                                                                                                                                 
+#!genome-build-accession  NCBI:GCA_000001405.28                                                                                                                   
+#!genebuild-last-updated  2020-09                                                                                                                                 
+1    havana    gene  11869  14409   .  +  .  gene_id  "ENSG00000223972";  gene_version  "5";  gene_name  "DDX11L1";  gene_source  "havana";  gene_biotype  "transcribed_unprocessed_pseudogene";
+```
+
 
 ## Ejercicio 3
 
