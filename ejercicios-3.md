@@ -113,7 +113,7 @@ grep "MW" covid-samples.fasta | sort | cut -c 1-11 |tee seq.txt | sort -n > covi
 -bash: covid.seq.txt: Permiso denegado
 tee: seq.txt: Permiso denegado
 ```
-***jajjja YA LO TENGO !!*** **ME HE COPIADO A MI DIRECTORIO EL ARCHIVO Y AHORA ME DEJA¡¡¡¡**
+***jajjja YA LO TENGO !!***  **HE COPIADO A MI DIRECTORIO EL ARCHIVO Y AHORA ME DEJA¡¡¡¡**
 
 ```
 mcuadrado@cpg3:/home/gtfs$ grep "MW" covid-samples.fasta --color | sort | cut -c1..10 | sort -nr | tee covid-seq-names.txt
