@@ -93,6 +93,43 @@ Recuerdas `covid-samples.fasta`? Localízalo en tu HOME, y extrae, usando un pip
 
 ### Respuesta ejercicio 3
 
+```
+grep "MW" covid-samples.fasta | sort | cut -c 1-11 | sort -n 
+>MW181431.1
+>MW186669.1
+>MW186829.1
+>MW186830.1
+```
+Con esta orden llego hasta ordenar la primera palabra de las seq pero cuando intento volcar estos datos en la salida al fichero me da error y no sé porqué ¿?
+
+```
+grep "MW" covid-samples.fasta | sort | cut -c 1-11 | sort -n > covid.seq.txt
+-bash: covid.seq.txt: Permiso denegado
+```
+No puedo volcar la salida de grep
+
+```
+grep "MW" covid-samples.fasta | sort | cut -c 1-11 |tee seq.txt | sort -n > covid.seq.txt
+-bash: covid.seq.txt: Permiso denegado
+tee: seq.txt: Permiso denegado
+```
+***jajjja YA LO TENGO !!*** **ME HE COPIADO A MI DIRECTORIO EL ARCHIVO Y AHORA ME DEJA¡¡¡¡**
+
+```
+mcuadrado@cpg3:/home/gtfs$ grep "MW" covid-samples.fasta --color | sort | cut -c1..10 | sort -nr | tee covid-seq-names.txt
+
+mcuadrado@cpg3:~$ cp -r /home/gtfs/covid-samples.fasta covid-copy.fasta 
+mcuadrado@cpg3:~$ grep "MW" covid-copy.fasta | sort | cut -c 1-11 |tee seq.txt | sort -n > covid.seq.txt
+mcuadrado@cpg3:~$ cat covid.seq.txt
+>MW181431.1
+>MW186669.1
+>MW186829.1
+>MW186830.1
+```
+
+
+
+
 
 ## Ejercicio 4
 
