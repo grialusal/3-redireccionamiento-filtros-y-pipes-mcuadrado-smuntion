@@ -136,58 +136,43 @@ Encuentra, usando una sola línea, el número de usuarias diferentes que tienen 
 ### Respuesta ejercicio 4
 
 ```
-mcuadrado@cpg3:~$  ls -l /home |tee home.txt | cut -f 4 |uniq -c > users.txt
-mcuadrado@cpg3:~$ cat users.txt
-total 368
-drwxr-x--- 54 abenito             abenito              4096 nov  2 19:04 abenito
-drwxr-x---  9 adominguez          adominguez           4096 oct 26 18:32 adominguez
-drwxr-x--- 35 adrianambroa        adrianambroa         4096 ago 24 10:43 adrianambroa
-drwxr-x--- 12 agarmar             agarmar              4096 jun 14 10:43 agarmar
-drwxr-x--- 24 alba                alba                 4096 jun 14 10:43 alba
-drwxrwxrwx  8 alejandro           alejandro            4096 nov  2 19:04 alejandro
--rw-r--r--  1 root                root                70880 may 20 17:48 alumnos.tar
-drwxr-x--- 14 analaura            analaura             4096 nov  2 19:08 analaura
-drwxr-x--- 21 anaromero           anaromero            4096 ago 24 10:43 anaromero
-drwxr-x--- 28 arqcarmel           arqcarmel            4096 jun 14 10:43 arqcarmel
-drwxr-x---  9 ccalvo              ccalvo               4096 oct 26 18:20 ccalvo
-drwxr-x---  2 cpg                 cpg                  4096 sep 28 09:24 cpg
-drwxr-xr-x  6 eval_user           eval_user            4096 oct 14 11:22 eval_user
-drwxr-x---  2 giselcp             giselcp              4096 sep 15 11:51 giselcp
-drwxr-xr-x  2 root                root                 4096 oct 29 10:07 gtfs
-drwxr-x---  2 gualtierolugato     gualtierolugato      4096 sep 15 11:24 gualtierolugato
-drwxr-x--- 10 jenr                jenr                 4096 oct 13 22:22 jenr
-drwxr-x---  3 jibri               jibri                4096 jun 14 10:43 jibri
--rw-------  1 root                root                70880 may 20 17:48 jupyterhub_cookie_secret
--rw-r--r--  1 root                root                70880 may 20 17:48 jupyterhub.sqlite
-drwxr-x--- 27 laudupri                           1046  4096 jun 14 10:43 laudupri
-drwxr-x---  2 lauraalvarezalvarez lauraalvarezalvarez  4096 jun 14 10:43 lauraalvarezalvarez
-drwxr-x---  2 lcorsan             lcorsan              4096 jun 14 10:43 lcorsan
-drwxr-xr-x  2 lihuengd            lihuengd             4096 sep 15 11:07 lihuengd
-drwxr-xr-x  7 loreto              loreto               4096 oct  1 15:55 loreto
-drwx------  2 root                root                16384 jun 14 10:43 lost+found
-drwxr-x---  9 madussana           madussana            4096 oct 14 18:44 madussana
-drwxr-x--- 14 mcuadrado           mcuadrado            4096 nov  3 11:26 mcuadrado
-drwxr-x--- 14 negido              negido               4096 oct 28 19:44 negido
-drwxr-xr-x  9 nelmarin            nelmarin             4096 oct 29 12:36 nelmarin
-drwxr-x--- 11 nguerrero           nguerrero            4096 nov  3 05:11 nguerrero
-drwxr-x---  9 pedrojf             pedrojf              4096 oct 31 21:41 pedrojf
-drwxr-x--- 43 rodri               rodri                4096 oct 20 13:22 rodri
-drwxr-xr-x  7 seqview_user        seqview_user         4096 jun 14 10:43 seqview_user
-drwxr-x---  2 sergiobenito        sergiobenito         4096 sep 28 09:28 sergiobenito
-drwxr-x--- 12 smuntion            smuntion             4096 oct 26 18:22 smuntion
-drwxr-xr-x  6                1009                1010  4096 sep  7 10:20 testuser
-drwxr-x--- 15 theron              theron               4096 jun 14 10:43 theron
-
-     
-      
+mcuadrado@cpg3:~$ ls -l /home |tee home.txt | cut -f 4 -d " " |uniq -c > users.txt
+mcuadrado@cpg3:~$ cat users.txt 
+      2 
+      1 adominguez
+      3 
+      1 alejandro
+      1 root
+      3 
+      1 ccalvo
+      1 cpg
+      1 eval_user
+      1 giselcp
+      1 root
+      1 gualtierolugato
+      1 
+      1 jibri
+      2 root
+      1 
+      1 lauraalvarezalvarez
+      1 lcorsan
+      1 lihuengd
+      1 loreto
+      1 root
+      1 madussana
+      4 
+      1 pedrojf
+      1 
+      1 seqview_user
+      1 sergiobenito
+      3    
 ```
       
-   No me reconoce las columnas. He intentado con la opcion de `cut -d "tabulador" `pero tampoco
-
+   No entiendo porque repite root y porqué desaparecen otros usuarios
 
 ```
 
-mcuadrado@cpg3:~$  cat home.txt | cut -f 2-4 -d ""  
+mcuadrado@cpg3:~$  cat home.txt 
 total 368
 drwxr-x--- 54 abenito             abenito              4096 nov  2 19:04 abenito
 drwxr-x---  9 adominguez          adominguez           4096 oct 26 18:32 adominguez
