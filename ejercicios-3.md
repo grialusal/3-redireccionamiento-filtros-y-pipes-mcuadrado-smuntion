@@ -136,43 +136,41 @@ Encuentra, usando una sola línea, el número de usuarias diferentes que tienen 
 ### Respuesta ejercicio 4
 
 ```
-mcuadrado@cpg3:~$ ls -l /home |tee home.txt | cut -f 4 -d " " |uniq -c > users.txt
-mcuadrado@cpg3:~$ cat users.txt 
-      2 
+ mcuadrado@cpg3:~$ ls -la /home | cut -f 3 -d " " |sort | uniq -c 
+      1 
+      2 1
+      9 2
+      1 3
+      2 6
+      2 7
+      1 8
+      2 9
+      1 abenito
       1 adominguez
-      3 
-      1 alejandro
-      1 root
-      3 
-      1 ccalvo
-      1 cpg
-      1 eval_user
-      1 giselcp
-      1 root
-      1 gualtierolugato
-      1 
-      1 jibri
-      2 root
-      1 
-      1 lauraalvarezalvarez
-      1 lcorsan
-      1 lihuengd
-      1 loreto
-      1 root
-      1 madussana
-      4 
+      1 adrianambroa
+      1 agarmar
+      1 alba
+      1 analaura
+      1 anaromero
+      1 arqcarmel
+      1 jenr
+      1 laudupri
+      1 mcuadrado
+      1 negido
+      1 nelmarin
+      1 nguerrero
       1 pedrojf
-      1 
-      1 seqview_user
-      1 sergiobenito
-      3    
+      1 rodri
+      2 root
+      1 smuntion
+      1 theron
 ```
       
-   No entiendo porque repite root y porqué desaparecen otros usuarios
+   No entiendo porqué aparecen esos números al principio y desaparecen ciertos usuarios como cpg o ccalvo. 
 
 ```
 
-mcuadrado@cpg3:~$  cat home.txt 
+mcuadrado@cpg3:~$ ls -l  
 total 368
 drwxr-x--- 54 abenito             abenito              4096 nov  2 19:04 abenito
 drwxr-x---  9 adominguez          adominguez           4096 oct 26 18:32 adominguez
@@ -214,6 +212,13 @@ drwxr-xr-x  6                1009                1010  4096 sep  7 10:20 testuse
 drwxr-x--- 15 theron              theron               4096 jun 14 10:43 theron
 ```
 
+```
+Para que cuente le pongo la orden final de wc -l 
+
+mcuadrado@cpg3:~$ ls -l /home | cut -f 3 -d " " |sort | uniq -c| wc -l
+26
+```
+Sale 26, y bueno, no sé si esto es correcto. Lo mismo sí y los usuarios desaparecidos los ha reemplazado por los números del inicio. No termino de entender que es lo que ha hecho.
 
 
 
