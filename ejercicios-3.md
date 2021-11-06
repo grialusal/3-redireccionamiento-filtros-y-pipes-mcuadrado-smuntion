@@ -221,4 +221,38 @@ mcuadrado@cpg3:~$ ls -l /home | cut -f 3 -d " " |sort | uniq -c| wc -l
 Sale 26, y bueno, no sé si esto es correcto. Lo mismo sí y los usuarios desaparecidos los ha reemplazado por los números del inicio. No termino de entender que es lo que ha hecho.
 
 
+_CORRECCIONES ANA Y NOELIA_
+
+**1.** ¡Casi! Los comandos y los flags están bien, pero al haberlos separado por pipes cuentan como órdenes independientes (por eso quedan valores descolocados en la tercera columna, como 6223745), entonces lo correcto hubiera sido:
+`sort -nr -k3,3 -k2,2 gene-2-desordenado.bed` 
+o 
+`sort -r -k3,3n -k2,2n gene-2-desordenado.bed`
+
+**Nota: 1,9/2,5**
+
+**2.** Los features son los correspondientes a la 3ª columna.
+Eso lo podemos comprobar de un vistazo con el comando `head -n10 | column -t`. Una vez comprobado, eliminaremos las líneas de cabecera mediante el comando `tail -n+4` o `grep -v "^#"` y seleccionaremos la columna que nos interesa, la que contiene "features", mediante cut -f3. Ordenamos los datos con sort para ejecutar posteriormente uniq -c y conocer así los diferentes tipos de features existentes. Nuestro pipeline quedaría así:
+
+`tail -n+4 Drosophila_melanogaster.BDGP6.28.102.gtf | cut -f3 | sort | uniq -c`
+o
+`cat Drosophila_melanogaster.BDGP6.28.102.gtf | grep -v "^#" | cut -f3 | sort | uniq -c`
+
+Podríamos ejecutar al final `sort -nr` para ordenar los datos y así tener de un vistazo las frecuencias mayores y menores.
+En el segundo caso, con el archivo Homo_sapiens.GRCh38.102.gtf.gz, podemos seguir el mismo camino, pero utilizando `zcat` en lugar de cat y, en el caso de que quisierais utilizar `tail`, tendríais que quitar dos líneas más de comentarios con `tail -n+6`. Quedaría:
+`zcat Homo_sapiens.GRCh38.102.gtf.gz | tail -n+6 | cut -f3 | sort | uniq -c | sort -nr`
+
+**Nota: 0,5/2,5**
+
+**3.** ¡Bien! Algunas sugerencias: utilizar `grep  “>”` y `cut -f1 -d " "` para no “jugarosla” con los nombres de las secuencias o con el numero de caracteres (aunque eso lo hicimos nosotras también jaja). Más sencillo aún:
+`grep ">" covid-samples.fasta | cut -f1 -d " " | sort > covid-seq-names.txt`
+
+**Nota: 2,4/2,5**
+
+**4.** Justo en este sí que podíais hacer la trampa del ejercicio 3, usando -c para que os saliera. También había que eliminar las primeras líneas con `tail -n+3`.
+`ls -al /home | tail -n+3 | cut -c15-33 | sort | uniq | wc -l`.
+
+**Nota: 1,7/2,5**
+
+**Total: 6,5 :)**
+
 
